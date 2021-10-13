@@ -1,7 +1,7 @@
 /**
  * @file stack.c
  * @author Aurelio LOURENCO, modifications Louis MORAND, Benoit ARQUILLIERE
- * @brief 
+ * @brief Fichier groupant les actions possibles sur une pile
  * @version 0.1
  * @date 2021-10-13
  * 

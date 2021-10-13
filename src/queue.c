@@ -21,9 +21,8 @@
  * @brief Fonction d'initialisation du tableau de file
  *
  * Prends en paramètre la structure Queue, et initialise l'index à -1.
- * Une indexation de l'index à 0 permet d'augmenter l'index de 1 à chaque nouvel ajout, donc
- * de positionner l'index à 1 dès le premier ajout, permettant de mettre à jour la position à
- * chaque ajout.
+ * Une indexation de l'index à 0 permet d'augmenter l'index de 1 à chaque nouvel ajout,
+ * permettant de mettre à jour la position à chaque ajout.
  * 
  * @param s Structure Queue, constituée d'un tableau de float et d'un index de remplissage
  */
@@ -61,6 +60,9 @@ void enqueue(Queue *q, float value){
  */
 float dequeue(Queue *q){
     int val_ret;
+    if(q->index == 0){
+        //TODO: gestion d'erreur si rien à renvoyer
+    }
     val_ret = q->data[0];
     for(int i=0; i < q->index; i++){
         q->data[i] = q->data[i+1];
