@@ -15,6 +15,7 @@
 #include <errno.h>
 #include <string.h>
 #include <assert.h>
+#include <CUnit/CUnit.h>
 
 #include "stack.h"
 
@@ -34,8 +35,18 @@ float test(int a) {
  */
 int main(int argc, char** argv) {
 
-
-
+    // Stack *stack = (Stack *)malloc(sizeof(Stack));
+    // init_stack(stack);
+    // push(stack, 18);
+    // push(stack, 4);
+    // push(stack, 6);
+    // push(stack, 26);
+    // push(stack, 63);
+    // peek(stack);
+    // pop(stack);
+    // swap(stack);
+    // dup(stack);
+    
     return (EXIT_SUCCESS);
 }
 
