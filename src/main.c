@@ -50,13 +50,13 @@ int main(int argc, char** argv) {
     is_empty = is_queue_empty(q);
 
     // init_stack(stack);
-    // push(stack, 18);
-    // push(stack, 4);
-    // push(stack, 6);
-    // push(stack, 26);
-    // push(stack, 63);
-    // peek(stack);
-    // pop(stack);
+    // push_stack(stack, 18);
+    // push_stack(stack, 4);
+    // push_stack(stack, 6);
+    // push_stack(stack, 26);
+    // push_stack(stack, 63);
+    // peek_stack(stack);
+    // pop_stack(stack);
     // swap(stack);
     // dup(stack);
     
