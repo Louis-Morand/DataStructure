@@ -29,7 +29,7 @@ void init_stack(Stack *s)
  * @param s Correspondant à une pile de structure Stack
  * @param value La value à ajouter à la pile
  */
-void push(Stack *s, float value)
+void push_stack(Stack *s, float value)
 {
     if (s->index < (int) STACK_MAX_SIZE-1)
     {
@@ -45,7 +45,7 @@ void push(Stack *s, float value)
  * @return float Retourne un float correspondant à l'élèment
  * retiré de la pile
  */
-float pop(Stack *s)
+float pop_stack(Stack *s)
 {
     float val = s->data[s->index];
     s->index--;
@@ -77,7 +77,7 @@ bool is_stack_empty(Stack *s)
  * @param s Correspondant à une pile de structure Stack
  * @return float 
  */
-float peek(Stack *s)
+float peek_stack(Stack *s)
 { // aka top or front
     if(!is_stack_empty(s))
     {
@@ -118,7 +118,7 @@ void swap(Stack *s)
  * 
  * @param s Correspondant à une pile de structure Stack
  */
-void clear(Stack *s)
+void clear_stack(Stack *s)
 {
     s->index = -1;
 }
