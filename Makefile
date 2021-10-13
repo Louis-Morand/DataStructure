@@ -7,11 +7,11 @@
 CC = gcc
 
 # define any compile-time flags
-CFLAGS	:= -Wall -Wextra -g
+CFLAGS	:= -Wall -Wextra -g -lm
 
 # define library paths in addition to /usr/lib
-#   if I wanted to include libraries not in /usr/lib I'd specify
-#   their path using -Lpath, something like:
+#   if I wanted to include librarihes not in /usr/lib I'd specify
+#   their path using -Lpath, someting like:
 LFLAGS =
 
 # define output directory

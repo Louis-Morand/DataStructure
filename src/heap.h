@@ -1,15 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @file heap.h
+ * @author Aurelio LOURENCO, modification Louis MORAND, Benoit ARQUILLIERE
+ * @brief 
+ * @version 0.1
+ * @date 2021-10-13
+ * 
+ * @copyright Copyright (c) 2021
+ * 
  */
-
-/* 
- * File:   heap.h
- * Author: aurelio
- *
- */
-
+#include <stdio.h>
 #include <stdbool.h>
 
 #ifndef HEAP_H
