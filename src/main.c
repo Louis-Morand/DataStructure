@@ -14,7 +14,7 @@
 #include <errno.h>
 #include <string.h>
 #include <assert.h>
-//#include "stack.h"
+#include "stack.h"
 #include "queue.h"
 
 float test(int a) {
@@ -30,37 +30,25 @@ float test(int a) {
 
 
 int main(int argc, char** argv) {
-    Queue *q;
+    Queue *q = (Queue *)malloc(sizeof(Queue));
+    Stack *stack = (Stack *)malloc(sizeof(Stack));
     float val;
     bool is_empty;
 
     init_queue(q);
-
     is_empty = is_queue_empty(q);
-    printf("\nVide :%d", is_empty);
-
     enqueue(q, 5);
     val = front(q);
-    printf("Valeur de tete:%f", val);
     enqueue(q, 6);
     val = front(q);
-    printf("Valeur de tete:%f", val);
     enqueue(q, 990);
-    val = front(q);
-    printf("Valeur de tete:%f", val);
-    
+    val = front(q);  
     dequeue(q);
     val = front(q);
-    printf("Valeur de tete:%f", val);
-
     is_empty = is_queue_empty(q);
-    printf("\nVide2 :%d", is_empty);
-
-    clear(q);
+    clear_queue(q);
     is_empty = is_queue_empty(q);
-    printf("\nVide2 :%d", is_empty);
 
-    // Stack *stack = (Stack *)malloc(sizeof(Stack));
     // init_stack(stack);
     // push(stack, 18);
     // push(stack, 4);

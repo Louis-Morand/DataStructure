@@ -27,8 +27,8 @@
  * 
  * @param s Structure Queue, constituée d'un tableau de float et d'un index de remplissage
  */
-void init_queue(Queue *s){
-    s->index=0;
+void init_queue(Queue *q){
+    q->index = 0;
 }
 
 /**
@@ -111,6 +111,6 @@ float front(Queue *q){
  * 
  * @param q Structure Queue, constituée d'un tableau de float et d'un index de remplissage
  */
-void clear(Queue *q){
+void clear_queue(Queue *q){
     q->index = 0;
 }
