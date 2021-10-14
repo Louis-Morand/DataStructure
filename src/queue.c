@@ -53,15 +53,17 @@ void enqueue(Queue *q, float value){
  * @brief Fonction d'enlevement d'un element dans la liste
  * 
  * L'enlevement d'un élement consiste à retourner l'elément en tete de liste, index 0, puis à décaler les valeurs du tableau
- * pour faire "avancer" la liste.
- * 
+ * pour faire "avancer" la liste, en décalant 1 par 1 les valeurs présentes
+ 
+ * //TODO: gestion d'erreur si rien à renvoyer
  * @param q Structure Queue, constituée d'un tableau de float et d'un index de remplissage
  * @return La valeur qui etait en tete de liste 
  */
 float dequeue(Queue *q){
     int val_ret;
     if(q->index == 0){
-        //TODO: gestion d'erreur si rien à renvoyer
+        printf("Tableau vide");
+        return -999;
     }
     val_ret = q->data[0];
     for(int i=0; i < q->index; i++){
