@@ -26,8 +26,8 @@ void init_stack(Stack *s);
 void push_stack(Stack *s, float value);
 float pop_stack(Stack *s);
 bool is_stack_empty(Stack *s);
-float peek(Stack *s);
-void dup(Stack *s);
-void swap(Stack *s);
-void clear(Stack *s);
+float peek_stack(Stack *s);
+void dup_stack(Stack *s);
+void swap_stack(Stack *s);
+void clear_stack(Stack *s);
 

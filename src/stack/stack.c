@@ -90,7 +90,7 @@ float peek_stack(Stack *s)
  *
  * @param s Correspondant à une pile de structure Stack
  */
-void dup(Stack *s)
+void dup_stack(Stack *s)
 {
     if (!is_stack_empty(s) && s->index < (int)STACK_MAX_SIZE - 1)
     {
@@ -104,7 +104,7 @@ void dup(Stack *s)
  *
  * @param s Correspondant à une pile de structure Stack
  */
-void swap(Stack *s)
+void swap_stack(Stack *s)
 {
     float temp = s->data[s->index];
     s->data[s->index] = s->data[s->index - 1];

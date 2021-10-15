@@ -73,12 +73,13 @@ void test_stack(Stack *stack)
     assert(stack->data[stack->index] == 4);
     push_stack(stack, 63);
     assert(stack->data[stack->index] == 63);
-    peek_stack(stack);
-    assert(stack->data[stack->index] == 63);
-    pop_stack(stack);
-    
-    swap(stack);
-    dup(stack);
+    assert(peek_stack(stack) == 63);
+    assert(pop_stack(stack) == 63);//on enleve le 63, reste 18 et 4
+    swap_stack(stack);//on echange le 18 et le 4
+    assert((stack->data[stack->index]) == 18);//donc 18 est en position 2
+    assert((stack->data[stack->index - 1]) == 4);
+    dup_stack(stack);
+    assert(stack->data[stack->index] == stack->data[stack->index-1]);
 }
 
 int main(int argc, char **argv)
