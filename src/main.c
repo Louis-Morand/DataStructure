@@ -14,8 +14,8 @@
 #include <errno.h>
 #include <string.h>
 #include <assert.h>
-#include "stack.h"
-#include "queue.h"
+#include "./stack/stack.h"
+#include "./queue/queue.h"
 
 float test(int a) {
     errno = a;
