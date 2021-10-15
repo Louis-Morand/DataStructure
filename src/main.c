@@ -2,12 +2,12 @@
  * @file main.c
  * @author Aurelio LOURENCO, modification Louis MORAND, Benoit ARQUILLIERE
  * @brief Tp de test d'implémentation de différent types de listes
- * 
+ *
  * @version 0.1
  * @date 2021-10-13
- * 
+ *
  * @copyright Copyright (c) 2021
- * 
+ *
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,29 +19,36 @@
 #include <CUnit/Console.h>
 #include "./stack/stack.h"
 #include "./queue/queue.h"
+#include "array_list/array_list.h"
 
-float test(int a) {
+float test(int a)
+{
     errno = a;
     assert(a == 5);
     int errnum = errno;
     fprintf(stderr, "Value of errno: %d\n", errnum);
     perror("Error printed by perror");
     fprintf(stderr, "Error opening file: %s\n", strerror(errnum));
-
 }
 
-void test_array_list(){
-
-
+void test_array_list()
+{
 }
 
-
-
-int main(int argc, char** argv) {
+int main(int argc, char **argv)
+{
     // Queue *q = (Queue *)malloc(sizeof(Queue));
     // Stack *stack = (Stack *)malloc(sizeof(Stack));
+    Array_list *array = (Array_list *)(malloc(sizeof(Array_list)));
     // float val;
     // bool is_empty;
+
+    init_array_list(array);
+    insert_at(array, 2, 56);
+    add(array, 99);
+    remove_at(array, 2);
+    get_at(array, 2);
+    clear_array(array);
 
     // init_queue(q);
     // is_empty = is_queue_empty(q);
@@ -50,7 +57,7 @@ int main(int argc, char** argv) {
     // enqueue(q, 6);
     // val = front(q);
     // enqueue(q, 990);
-    // val = front(q);  
+    // val = front(q);
     // dequeue(q);
     // val = front(q);
     // is_empty = is_queue_empty(q);
@@ -67,7 +74,6 @@ int main(int argc, char** argv) {
     // pop_stack(stack);
     // swap(stack);
     // dup(stack);
-    
+
     return (EXIT_SUCCESS);
 }
-

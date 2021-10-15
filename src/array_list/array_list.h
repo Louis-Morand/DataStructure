@@ -27,7 +27,7 @@ void insert_at(Array_list *l, int position, float value);
 void add(Array_list *l, float value);
 float remove_at(Array_list *l, int position);
 float get_at(Array_list *l,int position);
-void clear(Array_list *l);
+void clear_array(Array_list *l);
 
 
 
