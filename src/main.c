@@ -30,24 +30,24 @@ float test(int a) {
 
 
 int main(int argc, char** argv) {
-    Queue *q = (Queue *)malloc(sizeof(Queue));
-    Stack *stack = (Stack *)malloc(sizeof(Stack));
-    float val;
-    bool is_empty;
+    // Queue *q = (Queue *)malloc(sizeof(Queue));
+    // Stack *stack = (Stack *)malloc(sizeof(Stack));
+    // float val;
+    // bool is_empty;
 
-    init_queue(q);
-    is_empty = is_queue_empty(q);
-    enqueue(q, 5);
-    val = front(q);
-    enqueue(q, 6);
-    val = front(q);
-    enqueue(q, 990);
-    val = front(q);  
-    dequeue(q);
-    val = front(q);
-    is_empty = is_queue_empty(q);
-    clear_queue(q);
-    is_empty = is_queue_empty(q);
+    // init_queue(q);
+    // is_empty = is_queue_empty(q);
+    // enqueue(q, 5);
+    // val = front(q);
+    // enqueue(q, 6);
+    // val = front(q);
+    // enqueue(q, 990);
+    // val = front(q);  
+    // dequeue(q);
+    // val = front(q);
+    // is_empty = is_queue_empty(q);
+    // clear_queue(q);
+    // is_empty = is_queue_empty(q);
 
     // init_stack(stack);
     // push_stack(stack, 18);

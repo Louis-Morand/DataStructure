@@ -50,34 +50,32 @@ void init_array_list(Array_list *l){
 void insert_at(Array_list *l, int position, float value){
     int index=position-1;
 
-    if(l.index>99){
-        printf("Tableau plein")
-        return;
+    if(l->index>99){
+        printf("Tableau plein");
     }
     for(int i=ARRAY_LIST_MAX_SIZE; i>index;i--){
-        l.data[i]=l.data[i-1];
+        l->data[i]=l->data[i-1];
     }
-    l.data[index] = value;
-    l.index++;
+    l->data[index] = value;
+    l->index++;
 
 }
 //insère en fin(ou en debut ?) de tableau, TODO: VERIFIER DEBUT OU FIN
 void add(Array_list *l, float value){
 
-    if(l.index>99){
-        printf("Tableau plein")
-        return;
+    if(l->index>99){
+        printf("Tableau plein");
     }
     //INSERTION EN DERNIERE POSITION 
-    l.data[index]=value;
-    l.index++;
+    l->data[l->index]=value;
+    l->index++;
 
     //INSERTION EN PREMIERE POSITION
     for(int i=ARRAY_LIST_MAX_SIZE; i>0;i--){
-        l.data[i]=l.data[i-1];
+        l->data[i]=l->data[i-1];
     }
-    l.data[0]=value;
-    l.index++;
+    l->data[0]=value;
+    l->index++;
 }
 
 //On considère que l'insertion donne une position "humaine", cad que le tableau commence à 1 et non 0, donc on soustrait 1 pour obtenir la position "informatique"
@@ -88,13 +86,13 @@ float remove_at(Array_list *l, int position){
     if(position>99){
         printf("Erreur, position impossible");
     }
-    float ret = l.data[index];
+    float ret = l->data[index];
 
     for(int i=index; i<ARRAY_LIST_MAX_SIZE;i++){
-        l.data[i]=l.data[i+1];
+        l->data[i]=l->data[i+1];
     }
 
-    l.index--;
+    l->index--;
 
     return ret;
 }
@@ -107,12 +105,12 @@ float get_at(Array_list *l,int position){
     if(position>99){
         printf("Erreur, position impossible");
     }
-    ret = l.data[index];
+    ret = l->data[index];
 
     return ret;
 }
 
 //possible aussi de parcourir pour affecter une valeur qu'on considerera comme etant "vide" dans le tableau, mais plus rapide de simplement reset l'index
 void clear(Array_list *l){
-    l.index=0;
+    l->index=0;
 }
