@@ -27,10 +27,10 @@ typedef struct {
 
 void init_heap(Heap *h);
 bool is_heap_empty(Heap *h);
-float pop(Heap *h); //pop the root value
-void push(Heap *h, float value);
+float pop_heap(Heap *h); //pop the root value
+void push_heap(Heap *h, float value);
 float replace(Heap *h, float value); // pop root and push a new key.
-float peek(Heap *h); // return root value but dont remove it
+float peek_heap(Heap *h); // return root value but dont remove it
 void clear_heap(Heap *h);
 
 //En option
