@@ -13,16 +13,15 @@
 #include <stdbool.h>
 #include "heap.h"
 
-
 /**
  * @brief 
  * 
  * @param h 
  */
-void init_heap(Heap *h){
-    h->index=-1;
+void init_heap(Heap *h)
+{
+    h->index = -1;
 }
-
 
 /**
  * @brief 
@@ -33,27 +32,47 @@ void init_heap(Heap *h){
  */
 bool is_heap_empty(Heap *h)
 {
-    bool isEmpty = h->index==-1;
+    bool isEmpty = h->index == -1;
     return isEmpty;
 }
 
-
+/**
+ * @brief 
+ * 
+ * @param h 
+ * @return float 
+ */
 float pop_heap(Heap *h)
 {
-    //TODO: delete root value
+    float val;
+    return val;
 }
 
+/**
+ * @brief 
+ * 
+ * @param h 
+ * @param value 
+ */
 void push_heap(Heap *h, float value)
 {
     h->index++;
     //TODO: add a value to heap
 }
 
+/**
+ * @brief 
+ * 
+ * @param h 
+ * @param value 
+ * @return float 
+ */
 float replace(Heap *h, float value)
 {
+    float val;
     //TODO: pop root and push a new key.
-} 
-
+    return val;
+}
 
 /**
  * @brief return root value but dont remove it
@@ -66,7 +85,6 @@ float peek_heap(Heap *h)
     return h->data[0];
 }
 
-
 /**
  * @brief 
  * 
@@ -74,9 +92,8 @@ float peek_heap(Heap *h)
  */
 void clear_heap(Heap *h)
 {
-    h->index=-1;
+    h->index = -1;
 }
-
 
 // //En option
 // void heapify(Heap *s, float array[], size_t array_size)

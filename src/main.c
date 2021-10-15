@@ -20,6 +20,7 @@
 #include "./stack/stack.h"
 #include "./queue/queue.h"
 
+
 float test(int a) {
     errno = a;
     assert(a == 5);
@@ -34,8 +35,6 @@ void test_array_list(){
 
 
 }
-
-
 
 int main(int argc, char** argv) {
     // Queue *q = (Queue *)malloc(sizeof(Queue));
