@@ -10,7 +10,7 @@
  * enlevé sera enlevé du début de la liste (avec dequeue), selon un principe FIFO (premier arrivé premier sorti)
  * Les opérations possibles sur ce type de liste sont l'initalisation (init_queue), l'ajout (enqueue),
  * la suppression de valeur (enqueue), la vérification de l'étatv de la liste (vide ou non) (avec is_queue_empty),
- * la vérifiaction de la première valeur de la file (avec front), et le vidage de la liste (avec clear_queue).
+ * la vérification de la première valeur de la file (avec front), et le vidage de la liste (avec clear_queue).
  */
 
 #include <stdio.h>
@@ -20,7 +20,6 @@
 /**
  * @brief Fonction d'initialisation du tableau de file
  *
- * Prends en paramètre la structure Queue, et initialise l'index à -1.
  * Une indexation de l'index à 0 permet d'augmenter l'index de 1 à chaque nouvel ajout,
  * permettant de mettre à jour la position à chaque ajout.
  *
@@ -32,19 +31,19 @@ void init_queue(Queue *q)
 }
 
 /**
- * @brief Fonction de rajout d'un élément dans la liste
+ * @brief Fonction de rajout d'un élément dans la liste.
  *
  * Le rajout d'un élément dans une file consiste à ajouter un élément en dernière position de la file,
  * puis à incrémenter l'index pour le placer sur la position suivante.
  *
- * On peux éventuellement inclure un avertissement et vérification au cas où le tableau serait plein
+ * On peux éventuellement inclure un avertissement et vérification au cas où le tableau serait plein.
  *
  * @param q Structure Queue, constituée d'un tableau de float et d'un index de remplissage
  * @param value La valeur à rajouter dans la file
  */
 void enqueue(Queue *q, float value)
 {
-
+    
     q->data[q->index] = value;
     q->index++;
 }
@@ -64,10 +63,14 @@ float dequeue(Queue *q)
     int val_ret;
 
     val_ret = q->data[0];
-    for (int i = 0; i < q->index; i++)
+    for (int i = 0; i < (q->index-1); i++)
     {
-        q->data[i] = q->data[i + 1];
+        q->data[i] = q->data[i+1];
     }
+    // for(int i = 0; i < (q->index-1); i++){
+    //     q->data[i-1] = q->data[i];
+    // }
+    q->index--;
     return val_ret;
 }
 

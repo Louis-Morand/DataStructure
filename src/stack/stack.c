@@ -23,8 +23,7 @@ void init_stack(Stack *s)
 }
 
 /**
- * @brief Ajoute une valeur à la pile en vérifiant si la pile
- * n'est pas déjà complète.
+ * @brief Ajoute une valeur à la pile en vérifiant si la pile n'est pas déjà complète.
  *
  * @param s Correspondant à une pile de structure Stack
  * @param value La value à ajouter à la pile
@@ -78,7 +77,7 @@ bool is_stack_empty(Stack *s)
  * @return float
  */
 float peek_stack(Stack *s)
-{ // aka top or front
+{
     if (!is_stack_empty(s))
     {
         return s->data[s->index];

@@ -100,11 +100,11 @@ void add(Array_list *l, float value)
  */
 float remove_at(Array_list *l, int position)
 {
-    int index = position - 1;
+    int pos_corrig = position - 1;
 
-    float ret = l->data[index];
+    float ret = l->data[pos_corrig];
 
-    for (int i = index; i < ARRAY_LIST_MAX_SIZE; i++)
+    for (int i = pos_corrig; i < ARRAY_LIST_MAX_SIZE; i++)
     {
         l->data[i] = l->data[i + 1];
     }
@@ -130,10 +130,10 @@ float remove_at(Array_list *l, int position)
  */
 float get_at(Array_list *l, int position)
 {
-    int index = position - 1;
+    int pos_corrig = position - 1;
     float ret;
 
-    ret = l->data[index];
+    ret = l->data[pos_corrig];
 
     return ret;
 }

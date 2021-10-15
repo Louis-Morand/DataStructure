@@ -23,8 +23,8 @@ typedef struct {
 #endif /* STACK_H */
 
 void init_stack(Stack *s);
-void push(Stack *s, float value);
-float pop(Stack *s);
+void push_stack(Stack *s, float value);
+float pop_stack(Stack *s);
 bool is_stack_empty(Stack *s);
 float peek(Stack *s);
 void dup(Stack *s);
