@@ -36,20 +36,42 @@ bool is_heap_empty(Heap *h)
     return isEmpty;
 }
 
+/**
+ * @brief
+ *
+ * @param h
+ * @return float
+ */
 float pop_heap(Heap *h)
 {
-    // TODO: delete root value
+    float val;
+    return val;
 }
 
+/**
+ * @brief
+ *
+ * @param h
+ * @param value
+ */
 void push_heap(Heap *h, float value)
 {
     h->index++;
     // TODO: add a value to heap
 }
 
+/**
+ * @brief
+ *
+ * @param h
+ * @param value
+ * @return float
+ */
 float replace(Heap *h, float value)
 {
+    float val;
     // TODO: pop root and push a new key.
+    return val;
 }
 
 /**
