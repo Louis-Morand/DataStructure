@@ -14,12 +14,6 @@
 #include <stdlib.h>
 #include "array_list.h"
 
-/*
-typedef struct {
-    float data[ARRAY_LIST_MAX_SIZE];
-    int index;
-} Array_list;
-*/
 
 /**
  * @brief Fonction d'initialisation du tableau de liste
@@ -43,6 +37,8 @@ void init_array_list(Array_list *l){
  * La fonction parcours le tableau à l'envers, en décalant les valeurs evrs la fin, et s'arrete avant la position passée en paremètre pour permettre l'insertion.
  * Vérifie si le tableau est plein auquel cas aucun ajout n'est possible.
  * On considère que l'insertion donne une position "humaine", cad que le tableau commence à 1 et non 0, donc on soustrait 1 pour obtenir la position "informatique"
+ * 
+ * Egalement, une vérification plus poussée peut etre mise en place pour des index dépassants la taille du tableau
  * @param l L'ArrayList passée en paramètre
  * @param position la position à laquelle insérer la valeur
  * @param value la valeur à insérer dans le tableau
@@ -50,9 +46,6 @@ void init_array_list(Array_list *l){
 void insert_at(Array_list *l, int position, float value){
     int index=position-1;
 
-    if(l->index>99){
-        printf("Tableau plein");
-    }
     for(int i=ARRAY_LIST_MAX_SIZE; i>index;i--){
         l->data[i]=l->data[i-1];
     }
@@ -60,32 +53,44 @@ void insert_at(Array_list *l, int position, float value){
     l->index++;
 
 }
-//insère en fin(ou en debut ?) de tableau, TODO: VERIFIER DEBUT OU FIN
+
+/**
+ * @brief Fonction d'insertion dans la liste
+ * 
+ * Prends en paramètre la structure Array_list, puis insère la valeur donnée à la dernière position de la file
+ * Pour chaque valeur ajoutée, on augmente la taille de l'index, qui correspond à la taille logique du tableau.
+ * 
+ * Egalement, une vérification plus poussée peut etre mise en place pour des index dépassants la taille du tableau
+ * @param l L'ArrayList passé en paramètre
+ * @param value la valeur à insérer dans le tableau en dernière position
+ */
 void add(Array_list *l, float value){
 
-    if(l->index>99){
-        printf("Tableau plein");
-    }
     //INSERTION EN DERNIERE POSITION 
     l->data[l->index]=value;
-    l->index++;
-
-    //INSERTION EN PREMIERE POSITION
-    for(int i=ARRAY_LIST_MAX_SIZE; i>0;i--){
-        l->data[i]=l->data[i-1];
-    }
-    l->data[0]=value;
     l->index++;
 }
 
 //On considère que l'insertion donne une position "humaine", cad que le tableau commence à 1 et non 0, donc on soustrait 1 pour obtenir la position "informatique"
 
+/**
+ * @brief Fonction de renvoi de valeur à un index donné
+ * 
+ * Retourne la valeur située à la position donnée, en l'enlevant du tableau.
+ * On considère que la valeur passée en paramètre est une position "humaine" du taleau, soit de 1 à 100,
+ * donc on soustrait 1 à cette valeur pour obtenir la valeur logique.
+ * Une fois la valeur récupérée, on décale le tableau et décrémente l'index de manière à mettre à
+ * jour le tableau.
+ * Egalement, une vérification plus poussée peut etre mise en place pour des index dépassants la taille du tableau,
+ * et une vérification et renvoi erreur si le tableau est vide.
+ *
+ * @param l L'ArrayList passé en paramètre
+ * @param position La position de la valeur dans le tableau
+ * @return float la valeur située précédemment à l'index donné
+ */
 float remove_at(Array_list *l, int position){
     int index=position-1;
 
-    if(position>99){
-        printf("Erreur, position impossible");
-    }
     float ret = l->data[index];
 
     for(int i=index; i<ARRAY_LIST_MAX_SIZE;i++){
@@ -97,20 +102,38 @@ float remove_at(Array_list *l, int position){
     return ret;
 }
 
-//On considère que l'insertion donne une position "humaine", cad que le tableau commence à 1 et non 0, donc on soustrait 1 pour obtenir la position "informatique"
+/**
+ * @brief Fonction de "peek" à une position donnée
+ * 
+ * Retourne une copie de la valeur située à la position donnée
+ * On considère que la valeur passée en paramètre est une position "humaine" du taleau, soit de 1 à 100,
+ * donc on soustrait 1 à cette valeur pour obtenir la valeur logique.
+ * On ne fait que copier la valeur située à la position, donc il n'y a pas de suppression de valeurs
+ * Egalement, une vérification plus poussée peut etre mise en place pour des index dépassants la taille du tableau,
+ * ou bien une vérification si la position est vide ou non, avec l'inclusion d'une valeur "vide".
+ * 
+ * @param l L'ArrayList passé en paramètre
+ * @param position La position de la valeur dans le tableau
+ * @return float la valeur située à l'index donné
+ */
 float get_at(Array_list *l,int position){
     int index=position-1;
     float ret;
 
-    if(position>99){
-        printf("Erreur, position impossible");
-    }
     ret = l->data[index];
 
     return ret;
 }
 
 //possible aussi de parcourir pour affecter une valeur qu'on considerera comme etant "vide" dans le tableau, mais plus rapide de simplement reset l'index
+/**
+ * @brief Fonction de réinitialisation du tableau
+ * 
+ * Cette fonction permet de réinitialiser le tableau, en mettant la position de l'index à 0.
+ * Egalement, une autre possibilité de "vidage" pourrait etre de remplir le tableau de valeurs considérées comme "nulles"
+ * 
+ * @param l L'ArrayList passé en paramètre
+ */
 void clear(Array_list *l){
     l->index=0;
 }

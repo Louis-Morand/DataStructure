@@ -14,6 +14,9 @@
 #include <errno.h>
 #include <string.h>
 #include <assert.h>
+#include <CUnit/CUnit.h>
+#include <CUnit/Automated.h>
+#include <CUnit/Console.h>
 #include "./stack/stack.h"
 #include "./queue/queue.h"
 
@@ -24,6 +27,11 @@ float test(int a) {
     fprintf(stderr, "Value of errno: %d\n", errnum);
     perror("Error printed by perror");
     fprintf(stderr, "Error opening file: %s\n", strerror(errnum));
+
+}
+
+void test_array_list(){
+
 
 }
 

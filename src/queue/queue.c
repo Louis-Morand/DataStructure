@@ -34,7 +34,9 @@ void init_queue(Queue *q){
  * @brief Fonction de rajout d'un élément dans la liste
  * 
  * Le rajout d'un élément dans une file consiste à ajouter un élément en dernière position de la file,
- * puis à incrémenter l'index pour le placer sur la position suivante
+ * puis à incrémenter l'index pour le placer sur la position suivante.
+ * 
+ * On peux éventuellement inclure un avertissement et vérification au cas où le tableau serait plein
  * 
  * @param q Structure Queue, constituée d'un tableau de float et d'un index de remplissage
  * @param value La valeur à rajouter dans la file
@@ -43,9 +45,7 @@ void enqueue(Queue *q, float value){
 
     q->data[q->index] = value;
     q->index++;
-    if(q->index == 100){
-        printf("Attention: tableau plein");
-    }
+
 
 }
 
@@ -53,18 +53,15 @@ void enqueue(Queue *q, float value){
  * @brief Fonction d'enlevement d'un element dans la liste
  * 
  * L'enlevement d'un élement consiste à retourner l'elément en tete de liste, index 0, puis à décaler les valeurs du tableau
- * pour faire "avancer" la liste, en décalant 1 par 1 les valeurs présentes
- 
- * //TODO: gestion d'erreur si rien à renvoyer
+ * pour faire "avancer" la liste, en décalant 1 par 1 les valeurs présentes.
+ * On peux éventuellement inclure une vérification et erreur si le tableau est vide.
+ * 
  * @param q Structure Queue, constituée d'un tableau de float et d'un index de remplissage
  * @return La valeur qui etait en tete de liste 
  */
 float dequeue(Queue *q){
     int val_ret;
-    if(q->index == 0){
-        printf("Tableau vide");
-        return -999;
-    }
+
     val_ret = q->data[0];
     for(int i=0; i < q->index; i++){
         q->data[i] = q->data[i+1];
@@ -77,7 +74,7 @@ float dequeue(Queue *q){
  * 
  * Cette fonction se base sur l'index pour savoir si le tableau est vide, en vérifiant si il est à 0
  * ou non. En effet, un tableau vide aura son index à 0 pour permettre de rentrer la première valeur, tandis
- * qu'un index != 0 signifiera que le tableau n'est pas vide
+ * qu'un index != 0 signifiera que le tableau n'est pas vide.
  * 
  * @param q Structure Queue, constituée d'un tableau de float et d'un index de remplissage
  * @return true si la liste est vide, ou false sinon
@@ -95,6 +92,7 @@ bool is_queue_empty(Queue *q){
  * @brief Fonction permettant de vérifier la valeur en tete de liste, aka peek
  * 
  * Cette fonction regarde l'élément en tete de liste, à l'index 0, et le renvoie sans décaler la liste
+ * On peux éventuellement inclure une vérification et erreur si le tableau est vide
  * 
  * @param q Structure Queue, constituée d'un tableau de float et d'un index de remplissage
  * @return L'element en tete de liste 
