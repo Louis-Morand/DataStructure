@@ -39,8 +39,14 @@
  * 
  * 
  */
+/*
+TODO: TEST_CLEANUP ET TEST_INIT
+CU_INITIALIZE_REGISTERY POUR INIT
+CU_pSuite *p = CU_add_suite("test", test_init, test_cleanup);
+CU_add_test(p,"NOMTEST", NOMTESTFONCTION);
+CU_basic_run_tests(); pour run
 
-
+*/
 
 void test_array_list(Array_list *liste)
 {
@@ -122,6 +128,7 @@ int main(int argc, char **argv)
     test_queue(queue);
     test_stack(stack);
     // test_heap(heap);
+    
 
     return (EXIT_SUCCESS);
 }
