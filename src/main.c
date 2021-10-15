@@ -19,17 +19,28 @@
 #include <CUnit/Console.h>
 #include "./stack/stack.h"
 #include "./queue/queue.h"
-#include "array_list/array_list.h"
+#include "./array_list/array_list.h"
+#include "./heap/heap.h"
 
-float test(int a)
-{
-    errno = a;
-    assert(a == 5);
-    int errnum = errno;
-    fprintf(stderr, "Value of errno: %d\n", errnum);
-    perror("Error printed by perror");
-    fprintf(stderr, "Error opening file: %s\n", strerror(errnum));
-}
+/**
+ * @mainpage Datastructure Documentation
+ * 
+ * @brief Documentation du projet DataStructure, qui vise à implémenter et manipuler des structures de données
+ * 
+ * Le but de ce Tp est d'implémenter quatre types de structures de données:
+ * Une pile, une file, une liste, et un tas.
+ * 
+ * Et d'exercer différentes manipulations de leurs données, telle que l'ajout, l'initialisation,
+ * l'ajout en début ou fin de liste, et le remplacement de valeurs.
+ * 
+ * Actuellement, pour des mesures de simplicité, les types de tris sont implémentés via des tableaux,
+ * Une modification future pourrait etre de passer via la véritable forme de leurs implémentations, ou
+ * pour cette implémentation, de vérifier, en cas d'ajout de nouvelle valeur, si le tableau n'est pas deja plein.
+ * 
+ * 
+ */
+
+
 
 void test_array_list(Array_list *liste)
 {
@@ -74,23 +85,43 @@ void test_stack(Stack *stack)
     push_stack(stack, 63);
     assert(stack->data[stack->index] == 63);
     assert(peek_stack(stack) == 63);
-    assert(pop_stack(stack) == 63);//on enleve le 63, reste 18 et 4
-    swap_stack(stack);//on echange le 18 et le 4
-    assert((stack->data[stack->index]) == 18);//donc 18 est en position 2
+    assert(pop_stack(stack) == 63);            // on enleve le 63, reste 18 et 4
+    swap_stack(stack);                         // on echange le 18 et le 4
+    assert((stack->data[stack->index]) == 18); // donc 18 est en position 2
     assert((stack->data[stack->index - 1]) == 4);
     dup_stack(stack);
-    assert(stack->data[stack->index] == stack->data[stack->index-1]);
+    assert(stack->data[stack->index] == stack->data[stack->index - 1]);
 }
+
+void test_heap(Heap *heap)
+{
+    init_heap(heap);
+    assert(is_heap_empty(heap) == true);
+    push_heap(heap,55);
+    assert(peek_heap(heap)== 55);
+    push_heap(heap, 66);
+    assert(heap->data[2]==66);
+    push_heap(heap,89);
+    assert(heap->data[2]==89);
+    assert(pop_heap(heap)==55); // pop the root value
+    assert(replace(heap,10)==66);// pop root and push a new key.
+    assert(peek_heap(heap)==10);
+    void clear_heap(Heap * h);
+    assert(is_heap_empty(heap) == true);
+}
+
 
 int main(int argc, char **argv)
 {
     Queue *queue = (Queue *)malloc(sizeof(Queue));
     Stack *stack = (Stack *)malloc(sizeof(Stack));
     Array_list *array = (Array_list *)(malloc(sizeof(Array_list)));
+    Heap *heap = (Heap *)(malloc(sizeof(Heap)));
 
     test_array_list(array);
     test_queue(queue);
     test_stack(stack);
+    // test_heap(heap);
 
     return (EXIT_SUCCESS);
 }
