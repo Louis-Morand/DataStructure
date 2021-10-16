@@ -95,7 +95,7 @@ void init_heap(Heap *h)
  */
 bool is_heap_empty(Heap *h)
 {
-    bool isEmpty = h->index == 0;
+    bool isEmpty = (h->index == 0);
     return isEmpty;
 }
 
