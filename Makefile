@@ -7,7 +7,7 @@
 CC = gcc
 
 # define any compile-time flags
-CFLAGS	:= -Wall -Wextra -g -lm
+CFLAGS	:= -Wall -Wextra -g -lm -lcunit
 
 # define library paths in addition to /usr/lib
 #   if I wanted to include librarihes not in /usr/lib I'd specify

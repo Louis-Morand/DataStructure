@@ -14,9 +14,9 @@
 #include <errno.h>
 #include <string.h>
 #include <assert.h>
-#include <CUnit/CUnit.h>
-#include <CUnit/Automated.h>
-#include <CUnit/Console.h>
+// #include <CUnit/CUnit.h>
+// #include <CUnit/Automated.h>
+// #include <CUnit/Console.h>
 #include "./stack/stack.h"
 #include "./queue/queue.h"
 #include "./array_list/array_list.h"
@@ -129,11 +129,11 @@ int main(int argc, char **argv)
 {
     CU_initialize_registry();
 
-    CU_pSuite *tests = CU_add_suite("tests DataStructure", test_init, test_cleanup);
+    //CU_pSuite *tests = CU_add_suite("tests DataStructure", test_init, test_cleanup);
 
-    CU_add_test(tests, "test arrays_list", test_array_list);
-    CU_add_test(tests, "test queue", test_queue);
-    CU_add_test(tests, "test stack", test_stack);
+    // CU_add_test(tests, "test arrays_list", test_array_list);
+    // CU_add_test(tests, "test queue", test_queue);
+    // CU_add_test(tests, "test stack", test_stack);
     // CU_add_test(tests, "test heap", test_heap);
     
     CU_basic_run_tests();

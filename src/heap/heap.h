@@ -44,7 +44,7 @@ void swap(float *a, float *b);
  * @param sens_tri croissant ou décroissant
  */
 
-void heapify(float *tab, int size, int i, int sens_tri);
+void heapify(float *tab, int size, int i);
 
 /**
  * @brief tri les valeurs par avec le tri par tas
@@ -53,7 +53,7 @@ void heapify(float *tab, int size, int i, int sens_tri);
  * @param size taille du tableau
  * @param sens_tri croissant ou décroissant
  */
-void heapsort(float *tab, int size, int sens_tri);
+void heapsort(float *tab, int size);
 
 /**
  * @brief appel de la fonction test

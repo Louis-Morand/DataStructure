@@ -13,6 +13,69 @@
 #include <stdbool.h>
 #include "heap.h"
 
+
+
+
+/**
+ * @brief Echange deux valeurs,est utilisé par le tri par tas
+ * 
+ * @param a float
+ * @param b float
+ */
+void swap(float *a, float *b)
+{
+    float temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+/**
+ * @brief tri les valeurs par avec le tri par tas
+ * 
+ * @param tab tableau float a trier
+ * @param size taille du tableau
+ * @param i 
+ * @param sens_tri croissant ou décroissant
+ */
+void heapify(float *tab, int size, int i)
+{
+    int largest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
+
+    if (left < size && (tab[left] > tab[largest]))
+        largest = left;
+
+    if (right < size && (tab[right] > tab[largest]))
+        largest = right;
+
+    if (largest != i)
+    {
+        swap(&tab[i], &tab[largest]);
+        heapify(tab, size, largest);
+    }
+}
+
+/**
+ * @brief tri les valeurs par avec le tri par tas
+ * 
+ * @param tab tableau float a trier
+ * @param size taille du tableau
+ * @param sens_tri croissant ou décroissant
+ */
+void heapsort(float *tab, int size)
+{
+    for (int i = size / 2 - 1; i >= 0; i--)
+    {
+        heapify(tab, size, i);
+    }
+    for (int i = size - 1; i >= 0; i--)
+    {
+        swap(&tab[0], &tab[i]);
+        heapify(tab, i, 0);
+    }
+}
+
 /**
  * @brief Permet d'initialiser le tas
  *
@@ -70,6 +133,7 @@ void push_heap(Heap *h, float value)
     }
     
     h->data[0] = value;
+    heapsort(h->data, h->index);
 }
 
 /**
