@@ -13,20 +13,17 @@
 #include <stdbool.h>
 #include "heap.h"
 
-
-
-
 /**
  * @brief Echange deux valeurs,est utilisé par le tri par tas
  * 
  * @param a float
  * @param b float
  */
-void swap(float *a, float *b)
+void swap(float a, float b)
 {
-    float temp = *a;
-    *a = *b;
-    *b = temp;
+    float temp = a;
+    a = b;
+    b = temp;
 }
 
 /**
@@ -35,44 +32,42 @@ void swap(float *a, float *b)
  * @param tab tableau float a trier
  * @param size taille du tableau
  * @param i 
- * @param sens_tri croissant ou décroissant
  */
-void heapify(float *tab, int size, int i)
+void heapify(Heap *h, int size, int i)
 {
     int largest = i;
     int left = 2 * i + 1;
     int right = 2 * i + 2;
 
-    if (left < size && (tab[left] > tab[largest]))
+    if (left < size && (h->data[left] > h->data[largest]))
         largest = left;
 
-    if (right < size && (tab[right] > tab[largest]))
+    if (right < size && (h->data[right] > h->data[largest]))
         largest = right;
 
     if (largest != i)
     {
-        swap(&tab[i], &tab[largest]);
-        heapify(tab, size, largest);
+        swap(h->data[i], h->data[largest]);
+        heapify(h, size, largest);
     }
 }
 
 /**
- * @brief tri les valeurs par avec le tri par tas
+ * @brief Tri les valeurs par avec le tri par tas
  * 
- * @param tab tableau float a trier
- * @param size taille du tableau
- * @param sens_tri croissant ou décroissant
+ * @param h Structure heap à trier
  */
-void heapsort(float *tab, int size)
+void heapsort(Heap *h)
 {
+    int size = h->index;
     for (int i = size / 2 - 1; i >= 0; i--)
     {
-        heapify(tab, size, i);
+        heapify(h, size, i);
     }
     for (int i = size - 1; i >= 0; i--)
     {
-        swap(&tab[0], &tab[i]);
-        heapify(tab, i, 0);
+        swap(h->data[0], h->data[i]);
+        heapify(h, size, i);
     }
 }
 
@@ -114,7 +109,7 @@ float pop_heap(Heap *h)
         h->data[i] = h->data[i + 1];
     }
     h->index--;
-    
+
     return val;
 }
 
@@ -129,11 +124,11 @@ void push_heap(Heap *h, float value)
     h->index++;
     for (int i = h->index; i > 0; i--)
     {
-        h->data[i] = h->data[i-1];
+        h->data[i] = h->data[i - 1];
     }
-    
+
     h->data[0] = value;
-    heapsort(h->data, h->index);
+    heapsort(h);
 }
 
 /**

@@ -14,14 +14,13 @@
 #ifndef HEAP_H
 #define HEAP_H
 
-
 #define HEAP_MAX_SIZE 100
 
-typedef struct {
+typedef struct
+{
     float data[HEAP_MAX_SIZE];
     int index;
 } Heap;
-
 
 #endif /* HEAP_H */
 
@@ -31,12 +30,10 @@ bool is_heap_empty(Heap *h);
 float pop_heap(Heap *h); //pop the root value
 void push_heap(Heap *h, float value);
 float replace(Heap *h, float value); // pop root and push a new key.
-float peek_heap(Heap *h); // return root value but dont remove it
+float peek_heap(Heap *h);            // return root value but dont remove it
 void clear_heap(Heap *h);
 
 //utils functions
-void swap(float *a, float *b);
-void heapify(float *tab, int size, int i);
-void heapsort(float *tab, int size);
-
-
+void swap(float a, float b);
+void heapify(Heap *h, int size, int i);
+void heapsort(Heap *h);
